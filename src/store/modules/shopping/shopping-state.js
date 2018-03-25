@@ -1,3 +1,4 @@
+// @ts-check
 const state = {
     availableProducts: [
         { id: 0, name: 'Chocolate Liqueur - Godet White', inStock: 15, price: 5 },

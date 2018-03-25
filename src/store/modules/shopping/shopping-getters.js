@@ -1,3 +1,4 @@
+// @ts-check
 const getters = {
     lowStockItems: state => state.availableProducts.filter(product => product.inStock > 10),
     basketItemCount: state => state.basketItems.length,
