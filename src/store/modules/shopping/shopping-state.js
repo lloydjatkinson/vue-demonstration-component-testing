@@ -34,3 +34,5 @@ const state = {
         { id: 10, quantity: 5 },
     ]
 }
+
+export default state;

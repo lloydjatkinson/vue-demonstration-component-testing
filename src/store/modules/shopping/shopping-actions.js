@@ -1,2 +1,6 @@
 //@ts-check
-import 
+const actions = {
+    // TODO
+}
+
+export default actions;
