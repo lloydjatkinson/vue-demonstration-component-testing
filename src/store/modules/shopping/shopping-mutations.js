@@ -15,7 +15,7 @@ const mutations = {
         const product = state.basketItems.find(product => product.id === id);
 
         if (product) {
-            product.quantity = quantityToAdd;
+            product.quantity += quantityToAdd;
         } else {
             state.basketItems.push({ id, quantity: quantityToAdd })
         }
