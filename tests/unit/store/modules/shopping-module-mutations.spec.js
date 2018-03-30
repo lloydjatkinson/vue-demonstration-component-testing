@@ -229,4 +229,4 @@ describe('Shopping Module Mutations', () => {
             }).toThrow('Unknown ID.');
         });
     });
-});
+}); 
