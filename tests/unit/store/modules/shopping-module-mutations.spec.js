@@ -216,7 +216,7 @@ describe('Shopping Module Mutations', () => {
 
             expect(() => {
                 REMOVE_PRODUCT_FROM_BASKET(state, 2, 1);
-            }).toThrow('Unknown ID');
+            }).toThrow('Unknown ID.');
         });
 
         it('throws when removing an unknown ID from stock', () => {
@@ -226,7 +226,7 @@ describe('Shopping Module Mutations', () => {
 
             expect(() => {
                 REMOVE_PRODUCT_FROM_STOCK(state, 2, 1);
-            }).toThrow('Unknown ID');
+            }).toThrow('Unknown ID.');
         });
     });
 });
