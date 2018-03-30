@@ -34,10 +34,12 @@ const mutations = {
     },
 
     [ADD_PRODUCT_TO_STOCK] (state, id, quantityToAdd) {
-        const product = state.basketItems.find(p => p.id === id);
+        const product = state.availableProducts.find(p => p.id === id);
 
         if (product) {
             product.quantity += quantityToAdd;
+        } else {
+            state.availableProducts.push({ id, quantity: quantityToAdd });
         }
     },
 
