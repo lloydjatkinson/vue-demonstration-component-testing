@@ -4,7 +4,8 @@ const {
     ADD_PRODUCT_TO_BASKET,
     REMOVE_PRODUCT_FROM_BASKET,
     EMPTY_BASKET,
-    ADD_PRODUCT_TO_STOCK } = mutations;
+    ADD_PRODUCT_TO_STOCK,
+    REMOVE_PRODUCT_FROM_STOCK } = mutations;
 
 describe('Shopping Module Mutations', () => {
     describe('Adding items to shopping basket', () => {
@@ -62,7 +63,7 @@ describe('Shopping Module Mutations', () => {
     describe('Removing items from shopping basket', () => {
         it('removes the single item from basket and has valid array length', () => {
             const state = {
-                basketItems: [{ id: 1, quantity: 1}]
+                basketItems: [{ id: 1, quantity: 1 }]
             };
 
             REMOVE_PRODUCT_FROM_BASKET(state, 1, 1);
@@ -149,6 +150,83 @@ describe('Shopping Module Mutations', () => {
             expect(state.availableProducts).toContainEqual({ id: 1, quantity: 10 });
             expect(state.availableProducts).toContainEqual({ id: 2, quantity: 20 });
             expect(state.availableProducts).toContainEqual({ id: 3, quantity: 30 });
+        });
+    });
+
+    describe('Removing items from stock', () => {
+        it('removes the single item from stock and has valid array length', () => {
+            const state = {
+                availableProducts: [{ id: 1, quantity: 1 }]
+            };
+
+            REMOVE_PRODUCT_FROM_STOCK(state, 1, 1);
+
+            expect(state.availableProducts.length).toBe(1);
+            expect(state.availableProducts).toContainEqual({ id: 1, quantity: 0 });
+        });
+
+        it('removes one item twice one by one from stock and has valid quantity', () => {
+            const state = {
+                availableProducts: [{ id: 1, quantity: 2 }]
+            };
+
+            REMOVE_PRODUCT_FROM_STOCK(state, 1, 1);
+            REMOVE_PRODUCT_FROM_STOCK(state, 1, 1);
+
+            expect(state.availableProducts.length).toBe(1);
+            expect(state.availableProducts).toContainEqual({ id: 1, quantity: 0 });
+        });
+
+        it('removes some of the same already present items from stock and has valid quantities', () => {
+            const state = {
+                availableProducts: [
+                    { id: 1, quantity: 10 },
+                    { id: 2, quantity: 20 },
+                    { id: 3, quantity: 30 }
+                ]
+            };
+
+            REMOVE_PRODUCT_FROM_STOCK(state, 1, 10);
+            REMOVE_PRODUCT_FROM_STOCK(state, 2, 5);
+            REMOVE_PRODUCT_FROM_STOCK(state, 3, 25);
+
+            expect(state.availableProducts.length).toBe(3);
+            expect(state.availableProducts).toContainEqual({ id: 1, quantity: 0 });
+            expect(state.availableProducts).toContainEqual({ id: 2, quantity: 15 });
+            expect(state.availableProducts).toContainEqual({ id: 3, quantity: 5 });
+        });
+
+        it('removes items from stock and clamps quantity to zero', () => {
+            const state = {
+                availableProducts: [{ id: 1, quantity: 10 }]
+            };
+            
+            REMOVE_PRODUCT_FROM_STOCK(state, 1, 20);
+
+            expect(state.availableProducts.length).toBe(1);
+            expect(state.availableProducts).toContainEqual({ id: 1, quantity: 0 });
+        });
+    });
+
+    describe('Validates IDs and throws', () => {
+        it('throws when removing an unknown ID from basket', () => {
+            const state = {
+                basketItems: [{ id: 1, quantity: 1 }]
+            };
+
+            expect(() => {
+                REMOVE_PRODUCT_FROM_BASKET(state, 2, 1);
+            }).toThrow('Unknown ID');
+        });
+
+        it('throws when removing an unknown ID from stock', () => {
+            const state = {
+                availableProducts: [{ id: 1, quantity: 1 }]
+            };
+
+            expect(() => {
+                REMOVE_PRODUCT_FROM_STOCK(state, 2, 1);
+            }).toThrow('Unknown ID');
         });
     });
 });

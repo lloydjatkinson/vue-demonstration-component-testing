@@ -30,6 +30,9 @@ const mutations = {
             if (product.quantity <= 0) {
                 state.basketItems = state.basketItems.filter(p => p.id !== product.id);
             }
+        } else {
+            // If this happens then the design and tests do not correctly cover all cases.
+            throw new TypeError('Unknown ID.');
         }
     },
 
@@ -49,20 +52,15 @@ const mutations = {
         if (product) {
             product.quantity -= quantityToRemove;
 
+            // Can never truly remove from stock, simply set to zero.
+            // Out of stock scenario.
             if (product.quantity <= 0) {
                 product.quantity = 0;
             }
+        } else {
+            // If this happens then the design and tests do not correctly cover all cases.
+            throw new TypeError('Unknown ID.');
         }
-
-        // if (product) {
-        //     product.inStock = clamp(product.inStock, 0, )
-
-        //     product.quantity -= quantityToRemove;
-
-        //     if (product) {
-        //         product.quantity -= quantityToRemove;
-        //     }
-        // }
     },
 
     [EMPTY_BASKET] (state) {
