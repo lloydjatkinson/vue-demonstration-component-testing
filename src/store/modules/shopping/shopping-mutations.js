@@ -12,23 +12,23 @@ import {
 
 const mutations = {
     [ADD_PRODUCT_TO_BASKET] (state, id, quantityToAdd) {
-        const product = state.basketItems.find(product => product.id === id);
+        const product = state.basketProducts.find(product => product.id === id);
 
         if (product) {
             product.quantity += quantityToAdd;
         } else {
-            state.basketItems.push({ id, quantity: quantityToAdd })
+            state.basketProducts.push({ id, quantity: quantityToAdd })
         }
     },
 
     [REMOVE_PRODUCT_FROM_BASKET] (state, id, quantityToRemove) {
-        const product = state.basketItems.find(p => p.id === id);
+        const product = state.basketProducts.find(p => p.id === id);
         
         if (product) {
             product.quantity -= quantityToRemove;
 
             if (product.quantity <= 0) {
-                state.basketItems = state.basketItems.filter(p => p.id !== product.id);
+                state.basketProducts = state.basketProducts.filter(p => p.id !== product.id);
             }
         } else {
             // If this happens then the design and tests do not correctly cover all cases.
@@ -64,7 +64,7 @@ const mutations = {
     },
 
     [EMPTY_BASKET] (state) {
-        state.basketItems = [];
+        state.basketProducts = [];
     }
 };
 
