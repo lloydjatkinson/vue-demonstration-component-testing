@@ -27,7 +27,7 @@ const mutations = {
         if (product) {
             product.quantity -= quantityToRemove;
 
-            if (product.quantity >= 0) {
+            if (product.quantity <= 0) {
                 state.basketItems = state.basketItems.filter(p => p.id !== product.id);
             }
         }
@@ -44,6 +44,14 @@ const mutations = {
     [REMOVE_PRODUCT_FROM_STOCK] (state, id, quantityToRemove) {
         const product = state.availableProducts.find(p => p.id === id);
 
+        if (product) {
+            product.quantity -= quantityToRemove;
+
+            if (product.quantity <= 0) {
+                product.quantity = 0;
+            }
+        }
+
         // if (product) {
         //     product.inStock = clamp(product.inStock, 0, )
 
@@ -58,6 +66,6 @@ const mutations = {
     [EMPTY_BASKET] (state) {
         state.basketItems = [];
     }
-}
+};
 
 export default mutations;

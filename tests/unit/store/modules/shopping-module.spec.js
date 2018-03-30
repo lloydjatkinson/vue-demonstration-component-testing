@@ -1,11 +1,11 @@
 import { head } from 'lodash';
 import mutations from '../../../../src/store/modules/shopping/shopping-mutations';
 
-const { ADD_PRODUCT_TO_BASKET } = mutations;
+const { ADD_PRODUCT_TO_BASKET, REMOVE_PRODUCT_FROM_BASKET, EMPTY_BASKET } = mutations;
 
 describe('Shopping Module Mutations', () => {
     describe('Adding items to shopping basket', () => {
-        it('adds single item to empty basket and has valid count', () => {
+        it('adds single item to empty basket and has valid array length', () => {
             const state = {
                 basketItems: []
             };
@@ -59,6 +59,57 @@ describe('Shopping Module Mutations', () => {
     });
 
     describe('Removing items from shopping basket', () => {
-        
+        it('removes the single item from basket and has valid array length', () => {
+            const state = {
+                basketItems: [{ id: 1, quantity: 1}]
+            };
+
+            REMOVE_PRODUCT_FROM_BASKET(state, 1, 1);
+
+            expect(state.basketItems.length).toBe(0);
+        });
+
+        it('removes one item twice one by one from basket and has valid quantity', () => {
+            const state = {
+                basketItems: [{ id: 1, quantity: 2}]
+            };
+
+            REMOVE_PRODUCT_FROM_BASKET(state, 1, 1);
+            REMOVE_PRODUCT_FROM_BASKET(state, 1, 1);
+
+            expect(state.basketItems.length).toBe(0);
+        });
+
+        it('removes some of the same already present items from basket and has valid quantities', () => {
+            const state = {
+                basketItems: [
+                    { id: 1, quantity: 10 },
+                    { id: 2, quantity: 20 },
+                    { id: 3, quantity: 30 }
+                ]
+            };
+
+            REMOVE_PRODUCT_FROM_BASKET(state, 1, 5);
+            REMOVE_PRODUCT_FROM_BASKET(state, 2, 10);
+            REMOVE_PRODUCT_FROM_BASKET(state, 3, 15);
+
+            expect(state.basketItems).toContainEqual({ id: 1, quantity: 5 });
+            expect(state.basketItems).toContainEqual({ id: 2, quantity: 10 });
+            expect(state.basketItems).toContainEqual({ id: 3, quantity: 15 });
+        });
+
+        it('empties the basket and has valid array length', () => {
+            const state = {
+                basketItems: [
+                    { id: 1, quantity: 10 },
+                    { id: 2, quantity: 20 },
+                    { id: 3, quantity: 30 }
+                ]
+            };
+
+            EMPTY_BASKET(state);
+
+            expect(state.basketItems.length).toBe(0);
+        });
     });
 });
