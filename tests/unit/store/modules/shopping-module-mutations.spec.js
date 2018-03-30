@@ -5,7 +5,8 @@ const {
     REMOVE_PRODUCT_FROM_BASKET,
     EMPTY_BASKET,
     ADD_PRODUCT_TO_STOCK,
-    REMOVE_PRODUCT_FROM_STOCK } = mutations;
+    REMOVE_PRODUCT_FROM_STOCK
+} = mutations;
 
 describe('Shopping Module Mutations', () => {
     describe('Adding products to shopping basket', () => {

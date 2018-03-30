@@ -4,7 +4,8 @@ const {
     lowStockProducts,
     basketProductCount,
     basketQuantityTotal,
-    basketPriceTotal } = getters;
+    basketPriceTotal
+} = getters;
 
 describe('Shopping Module Getters', () => {
     it('gets correct number of low stock items', () => {
