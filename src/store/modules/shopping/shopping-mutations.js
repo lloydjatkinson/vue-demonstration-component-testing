@@ -1,5 +1,4 @@
 // @ts-check
-import { clamp } from 'lodash';
 import {
     ADD_PRODUCT_TO_BASKET,
     REMOVE_PRODUCT_FROM_BASKET,
