@@ -3,5 +3,31 @@
   "extends": [
     "plugin:vue/essential",
     "eslint:recommended"
-  ]
+  ],
+  "parserOptions": {
+      "ecmaVersion": 8
+  },
+  "rules": {
+    "eol-last": 0,
+    "comma-dangle": [2,"never"],
+    "indent": ["error", 4],
+    "semi": 2,
+    "generator-star-spacing": 2,
+    "vue/html-indent": ["error", 4],
+    "linebreak-style": "off",
+    "no-debugger": "off",
+    "no-console": "error",
+    "space-before-function-paren": ["error", {
+        "anonymous": "always",
+        "named": "always",
+        "asyncArrow": "always"
+    }],
+    "vue/max-attributes-per-line": [5, {
+        "singleline": 5,
+        "multiline": {
+          "max": 1,
+          "allowFirstLine": false
+        }
+      }]
+  }
 }

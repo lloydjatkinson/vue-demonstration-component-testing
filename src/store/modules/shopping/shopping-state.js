@@ -22,17 +22,17 @@ const state = {
         { id: 18, name: 'Lemonade - Island Tea, 591 Ml', inStock: 10, price: 3 },
         { id: 19, name: 'Appetizer - Spring Roll, Veg', inStock: 5, price: 4 }
     ],
-    discounts: [
-        { id: 3, }
-    ],
+    // discounts: [
+    //     { id: 3, }
+    // ],
     // Set initial state to already contain some products.
     basketItems: [
         { id: 3, quantity: 1 },
         { id: 16, quantity: 7 },
         { id: 7, quantity: 3 },
         { id: 8, quantity: 3 },
-        { id: 10, quantity: 5 },
+        { id: 10, quantity: 5 }
     ]
-}
+};
 
 export default state;
