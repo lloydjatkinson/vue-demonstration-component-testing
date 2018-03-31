@@ -1,7 +1,7 @@
 # vue-demonstration-component-testing
 [![Build Status](https://travis-ci.org/lloydjatkinson/vue-demonstration-component-testing.svg?branch=master)](https://travis-ci.org/lloydjatkinson/vue-demonstration-component-testing)
 
-A demonstration of unit testing Javascript, Vue and Vuex.
+A demonstration of unit testing Javascript, Vue and Vuex. Using a generic shopping basket concept for demonstration purposes.
 
 
 
@@ -36,4 +36,4 @@ Unit tests
  - Render correct text/data from Vuex store
  - DOM events (e.g. user interaction)
  - Triggering DOM events
- - Check for existance of DOM element via selector
+ - Check for existence of DOM element via selector
