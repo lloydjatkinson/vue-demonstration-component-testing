@@ -3,14 +3,29 @@
 
 A demonstration of unit testing Javascript, Vue and Vuex.
  
- Vuex State Management - Implementation
+**Vuex State Management**
+
+Implementation
  - State/Store ✔️
  - Mutations ✔️
  - Getters ✔️
  - Actions ✔️
 
-Vuex State Management - Unit tests
+Unit tests
  - State/Store ✔️
  - Mutations ✔️
  - Getters ✔️
  - Actions (including mocking of context - dispatch and commit) ✔️
+
+**Vue Components**
+
+Implementation
+ - Components
+
+Unit tests
+ - Render correct text/data
+ - Render corrext text/data from props
+ - Render correct text/data from Vuex store
+ - DOM events (e.g. user interaction)
+ - Triggering DOM events
+ - Check for existance of DOM element via selector
