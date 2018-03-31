@@ -16,6 +16,8 @@ Unit tests
  - Mutations ✔️
  - Getters ✔️
  - Actions (including mocking of context - dispatch and commit) ✔️
+ 
+----------
 
 **Vue Components**
 
