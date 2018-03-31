@@ -3,7 +3,7 @@
 
 A demonstration of unit testing Javascript, Vue and Vuex.
  
-# Vuex State Management
+## Vuex State Management
 
 Implementation
  - State/Store ✔️
@@ -17,7 +17,7 @@ Unit tests
  - Getters ✔️
  - Actions (including mocking of context - dispatch and commit) ✔️
 
-# Vue Components
+## Vue Components
 
 Implementation
  - Components
