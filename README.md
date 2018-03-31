@@ -9,7 +9,7 @@ A demonstration of unit testing Javascript, Vue and Vuex.
 
 Unit tests
  - Asserting function return values
- - Mocking dependencies of functions and verifying call signatures
+ - Mocking dependencies of functions - isolating them and verifying call signatures
  
 ## Vuex State Management
 
