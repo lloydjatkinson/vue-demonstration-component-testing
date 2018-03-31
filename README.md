@@ -13,4 +13,4 @@ Vuex State Management - Unit tests
  - State/Store ✔️
  - Mutations ✔️
  - Getters ✔️
- - Actions ✔️
+ - Actions (including mocking of context - dispatch and commit) ✔️
