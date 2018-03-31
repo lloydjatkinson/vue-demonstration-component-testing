@@ -7,6 +7,7 @@ import {
 
     EMPTY_BASKET
 } from '../../../../src/store/modules/shopping/shopping-mutation-types';
+
 import actions from '../../../../src/store/modules/shopping/shopping-actions';
 
 const {
@@ -35,8 +36,7 @@ describe('Shopping Module Actions', () => {
         it('adds products to shopping basket', () => {
             addProductToBasket(context, { id: 1, quantityToAdd: 2 });
 
-            expect(context.commit).toHaveBeenCalledWith(ADD_PRODUCT_TO_BASKET, 1, 2 ); 
-            // expect(context.commit).toHaveBeenCalled(); 
+            expect(context.commit).toHaveBeenCalledWith(ADD_PRODUCT_TO_BASKET, 1, 2 );
         });
     });
 });
