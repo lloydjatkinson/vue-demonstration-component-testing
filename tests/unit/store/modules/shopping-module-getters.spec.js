@@ -1,6 +1,8 @@
 import getters from '../../../../src/store/modules/shopping/shopping-getters';
 
 const {
+    availableProducts,
+    basketProducts,
     lowStockProducts,
     basketProductCount,
     basketQuantityTotal,
@@ -8,6 +10,38 @@ const {
 } = getters;
 
 describe('Shopping Module Getters', () => {
+    it('gets the available products', () => {
+        const state = {
+            availableProducts: [
+                { id: 1, quantity: 1 },
+                { id: 2, quantity: 2 },
+                { id: 3, quantity: 3 }
+            ]
+        };
+
+        const result = availableProducts(state);
+
+        expect(result).toContainEqual({ id: 1, quantity: 1 });
+        expect(result).toContainEqual({ id: 2, quantity: 2 });
+        expect(result).toContainEqual({ id: 3, quantity: 3 });
+    });
+
+    it('gets the basket products', () => {
+        const state = {
+            basketProducts: [
+                { id: 1, quantity: 1 },
+                { id: 2, quantity: 2 },
+                { id: 3, quantity: 3 }
+            ]
+        };
+
+        const result = basketProducts(state);
+
+        expect(result).toContainEqual({ id: 1, quantity: 1 });
+        expect(result).toContainEqual({ id: 2, quantity: 2 });
+        expect(result).toContainEqual({ id: 3, quantity: 3 });
+    });
+
     it('gets correct number of low stock items', () => {
         const state = {
             availableProducts: [

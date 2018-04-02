@@ -1,6 +1,8 @@
 // @ts-check
 const getters = {
+    availableProducts: state => state.availableProducts,
     lowStockProducts: state => state.availableProducts.filter(product => product.quantity < 10),
+    basketProducts: state => state.basketProducts,
     basketProductCount: state => state.basketProducts.length,
     basketQuantityTotal: state =>
         state.basketProducts.reduce((accumulator, currentProduct) => {

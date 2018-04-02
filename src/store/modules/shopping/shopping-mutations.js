@@ -1,4 +1,5 @@
 // @ts-check
+import mustNotBeNullOrUndefined from '../../../helpers/throw-helper';
 import {
     ADD_PRODUCT_TO_BASKET,
     REMOVE_PRODUCT_FROM_BASKET,
@@ -11,16 +12,22 @@ import {
 
 const mutations = {
     [ADD_PRODUCT_TO_BASKET] (state, id, quantityToAdd) {
+        mustNotBeNullOrUndefined(id, 'id');
+        mustNotBeNullOrUndefined(quantityToAdd, 'quantityToAdd');
+
         const product = state.basketProducts.find(product => product.id === id);
 
         if (product) {
             product.quantity += quantityToAdd;
         } else {
-            state.basketProducts.push({ id, quantity: quantityToAdd })
+            state.basketProducts.push({ id, quantity: quantityToAdd });
         }
     },
 
     [REMOVE_PRODUCT_FROM_BASKET] (state, id, quantityToRemove) {
+        mustNotBeNullOrUndefined(id, 'id');
+        mustNotBeNullOrUndefined(quantityToRemove, 'quantityToRemove');
+
         const product = state.basketProducts.find(p => p.id === id);
         
         if (product) {
@@ -36,6 +43,9 @@ const mutations = {
     },
 
     [ADD_PRODUCT_TO_STOCK] (state, id, quantityToAdd) {
+        mustNotBeNullOrUndefined(id, 'id');
+        mustNotBeNullOrUndefined(quantityToAdd, 'quantityToAdd');
+
         const product = state.availableProducts.find(p => p.id === id);
 
         if (product) {
@@ -46,6 +56,9 @@ const mutations = {
     },
 
     [REMOVE_PRODUCT_FROM_STOCK] (state, id, quantityToRemove) {
+        mustNotBeNullOrUndefined(id, 'id');
+        mustNotBeNullOrUndefined(quantityToRemove, 'quantityToRemove');
+
         const product = state.availableProducts.find(p => p.id === id);
 
         if (product) {
