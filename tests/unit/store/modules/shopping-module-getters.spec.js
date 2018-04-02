@@ -28,6 +28,11 @@ describe('Shopping Module Getters', () => {
 
     it('gets the basket products', () => {
         const state = {
+            availableProducts: [
+                { id: 1, name: 'Test 1', price: 5, quantity: 10 },
+                { id: 2, name: 'Test 2', price: 10, quantity: 10 },
+                { id: 3, name: 'Test 3', price: 20, quantity: 11 }
+            ],
             basketProducts: [
                 { id: 1, quantity: 1 },
                 { id: 2, quantity: 2 },
@@ -37,9 +42,28 @@ describe('Shopping Module Getters', () => {
 
         const result = basketProducts(state);
 
-        expect(result).toContainEqual({ id: 1, quantity: 1 });
-        expect(result).toContainEqual({ id: 2, quantity: 2 });
-        expect(result).toContainEqual({ id: 3, quantity: 3 });
+        expect(result).toContainEqual({ id: 1, name: 'Test 1', price: 5, quantity: 1, total: 5 });
+        expect(result).toContainEqual({ id: 2, name: 'Test 2', price: 10, quantity: 2, total: 20 });
+        expect(result).toContainEqual({ id: 3, name: 'Test 3', price: 20, quantity: 3, total: 60 });
+    });
+
+    it('throws when getting products that have invalid ID', () => {
+        const state = {
+            availableProducts: [
+                { id: 1, name: 'Test 1', price: 5, quantity: 10 },
+                { id: 2, name: 'Test 2', price: 10, quantity: 10 },
+                { id: 3, name: 'Test 3', price: 20, quantity: 11 }
+            ],
+            basketProducts: [
+                { id: 1, quantity: 1 },
+                { id: 2, quantity: 2 },
+                { id: 30, quantity: 3 }
+            ]
+        };
+
+        expect(() => {
+            basketProducts(state);
+        }).toThrow('Unknown ID.');
     });
 
     it('gets correct number of low stock items', () => {
