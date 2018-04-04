@@ -12,15 +12,16 @@
                 </div>
             </div>
         </section>
-        <!-- <section class="section">
+        <section class="section banner-small-padding">
             <div class="container">
-                <h1 class="title">Section</h1>
+                <!-- <h1 class="title">Section</h1>
                 <h2 class="subtitle">
                     A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading
-                </h2>
+                </h2> -->
+                <statistics-banner />
             </div>
-        </section> -->
-        <section class="section">
+        </section>
+        <section class="section banner-small-padding">
             <div class="container">
                 <div class="tile is-ancestor">
                     <div class="tile is-parent">
@@ -43,6 +44,7 @@
 </template>
 
 <script>
+import StatisticsBanner from './components/statistics-banner'
 import ShoppingBasket from './components/shopping-basket';
 import ProductSelection from './components/product-selection';
 import LowStock from './components/low-stock';
@@ -50,6 +52,7 @@ import LowStock from './components/low-stock';
 export default {
     name: 'ShoppingApplication',
     components: {
+        StatisticsBanner,
         ShoppingBasket,
         ProductSelection,
         LowStock
@@ -64,4 +67,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
+
+.banner-small-padding {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
 </style>

@@ -1,18 +1,26 @@
 <template>
     <div>
-        <nav class="level">
+        <nav class="level is-mobile">
             <div class="left-side">
                 <div class="level-item">
                     <b-icon
                         icon="store"
                         size="is-small">
                     </b-icon>
-                    <p class="subtitle">Shopping Basket</p>
+                    <p class="subtitle">Stock</p>
                 </div>
             </div>
         </nav>
-        <b-table :data="availableProducts" :columns="productColumns" :hoverable="true"></b-table>
-        <button v-on:click="removeProductFromStock({ id: 14, quantityToRemove: 1 })">Test</button>
+        <b-table
+            v-bind:data="availableProducts"
+            v-bind:columns="productColumns"
+            v-bind:hoverable="true">
+        </b-table>
+        <button
+            v-on:click="removeProductFromStock({ id: 14, quantityToRemove: 1 })"
+            class="button is-success">
+            Test
+        </button>
     </div>
 </template>
 

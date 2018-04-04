@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="level">
+        <nav class="level is-mobile">
             <div class="left-side">
                 <div class="level-item">
                     <b-icon

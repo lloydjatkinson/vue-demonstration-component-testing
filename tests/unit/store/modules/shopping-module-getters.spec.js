@@ -39,7 +39,6 @@ describe('Shopping Module Getters', () => {
         expect(basketContainsProducts(state)).toBeTruthy();
 
         state.basketProducts = [];
-        console.log(basketContainsProducts(state));
         expect(basketContainsProducts(state)).toBeFalsy();
     });
 

@@ -1,7 +1,7 @@
 {
   "root": true,
   "extends": [
-    "plugin:vue/essential",
+    "plugin:vue/recommended",
     "eslint:recommended"
   ],
   "parserOptions": {
@@ -28,6 +28,7 @@
           "max": 1,
           "allowFirstLine": false
         }
-      }]
+    }],
+    "vue/v-on-style": "longform"
   }
 }
