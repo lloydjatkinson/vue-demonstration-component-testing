@@ -25,13 +25,12 @@
                 <div class="tile is-ancestor">
                     <div class="tile is-parent">
                         <div class="tile is-child box">
-                            <p class="subtitle">Products</p>
-                            
+                            <product-selection />
                         </div>
                     </div>
                     <div class="tile is-4 is-vertical is-parent">
                         <div class="tile is-child box">
-                            <p class="subtitle">Low Stock</p>
+                            <low-stock />
                         </div>
                         <div class="tile is-child box">
                             <shopping-basket />
@@ -40,16 +39,20 @@
                 </div>
             </div>
         </section>
-  </div>
+    </div>
 </template>
 
 <script>
 import ShoppingBasket from './components/shopping-basket';
+import ProductSelection from './components/product-selection';
+import LowStock from './components/low-stock';
 
 export default {
     name: 'ShoppingApplication',
     components: {
-        ShoppingBasket
+        ShoppingBasket,
+        ProductSelection,
+        LowStock
     }
 };
 </script>

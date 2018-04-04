@@ -11,7 +11,7 @@ import {
 } from './shopping-mutation-types';
 
 const mutations = {
-    [ADD_PRODUCT_TO_BASKET] (state, id, quantityToAdd) {
+    [ADD_PRODUCT_TO_BASKET] (state, { id, quantityToAdd }) {
         mustNotBeNullOrUndefined(id, 'id');
         mustNotBeNullOrUndefined(quantityToAdd, 'quantityToAdd');
 
@@ -24,7 +24,7 @@ const mutations = {
         }
     },
 
-    [REMOVE_PRODUCT_FROM_BASKET] (state, id, quantityToRemove) {
+    [REMOVE_PRODUCT_FROM_BASKET] (state, { id, quantityToRemove }) {
         mustNotBeNullOrUndefined(id, 'id');
         mustNotBeNullOrUndefined(quantityToRemove, 'quantityToRemove');
 
@@ -42,7 +42,7 @@ const mutations = {
         }
     },
 
-    [ADD_PRODUCT_TO_STOCK] (state, id, quantityToAdd) {
+    [ADD_PRODUCT_TO_STOCK] (state, { id, quantityToAdd }) {
         mustNotBeNullOrUndefined(id, 'id');
         mustNotBeNullOrUndefined(quantityToAdd, 'quantityToAdd');
 
@@ -55,7 +55,7 @@ const mutations = {
         }
     },
 
-    [REMOVE_PRODUCT_FROM_STOCK] (state, id, quantityToRemove) {
+    [REMOVE_PRODUCT_FROM_STOCK] (state, { id, quantityToRemove }) {
         mustNotBeNullOrUndefined(id, 'id');
         mustNotBeNullOrUndefined(quantityToRemove, 'quantityToRemove');
 

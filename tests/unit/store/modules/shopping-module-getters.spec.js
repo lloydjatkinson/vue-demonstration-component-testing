@@ -2,6 +2,7 @@ import getters from '../../../../src/store/modules/shopping/shopping-getters';
 
 const {
     availableProducts,
+    basketContainsProducts,
     basketProducts,
     lowStockProducts,
     basketProductCount,
@@ -24,6 +25,22 @@ describe('Shopping Module Getters', () => {
         expect(result).toContainEqual({ id: 1, quantity: 1 });
         expect(result).toContainEqual({ id: 2, quantity: 2 });
         expect(result).toContainEqual({ id: 3, quantity: 3 });
+    });
+
+    it('gets the correct value indicating if the basket contains products', () => {
+        let state = {
+            basketProducts: [
+                { id: 1, quantity: 1 },
+                { id: 2, quantity: 2 },
+                { id: 3, quantity: 3 }
+            ]
+        };
+
+        expect(basketContainsProducts(state)).toBeTruthy();
+
+        state.basketProducts = [];
+        console.log(basketContainsProducts(state));
+        expect(basketContainsProducts(state)).toBeFalsy();
     });
 
     it('gets the basket products', () => {

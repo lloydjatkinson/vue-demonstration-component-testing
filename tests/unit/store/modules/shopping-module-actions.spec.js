@@ -36,7 +36,7 @@ describe('Shopping Module Actions', () => {
         it('commits correct mutation and adds products to shopping basket', () => {
             addProductToBasket(context, { id: 1, quantityToAdd: 2 });
 
-            expect(context.commit).toHaveBeenCalledWith(ADD_PRODUCT_TO_BASKET, 1, 2);
+            expect(context.commit).toHaveBeenCalledWith(ADD_PRODUCT_TO_BASKET, { id: 1, quantityToAdd: 2 });
         });
     });
 
@@ -48,7 +48,7 @@ describe('Shopping Module Actions', () => {
 
             removeProductFromBasket(context, { id: 1, quantityToRemove: 2 });
 
-            expect(context.commit).toHaveBeenCalledWith(REMOVE_PRODUCT_FROM_BASKET, 1, 2);
+            expect(context.commit).toHaveBeenCalledWith(REMOVE_PRODUCT_FROM_BASKET, { id: 1, quantityToRemove: 2 });
         });
 
         it('commits the correct mutation and empties the shopping basket', () => {
@@ -73,7 +73,7 @@ describe('Shopping Module Actions', () => {
 
             addProductToStock(context, { id: 1, quantityToAdd: 2 });
 
-            expect(context.commit).toHaveBeenCalledWith(ADD_PRODUCT_TO_STOCK, 1, 2);
+            expect(context.commit).toHaveBeenCalledWith(ADD_PRODUCT_TO_STOCK, { id: 1, quantityToAdd: 2 });
         });
     });
 
@@ -85,7 +85,7 @@ describe('Shopping Module Actions', () => {
 
             removeProductFromStock(context, { id: 1, quantityToRemove: 2 });
 
-            expect(context.commit).toHaveBeenCalledWith(REMOVE_PRODUCT_FROM_STOCK, 1, 2);
+            expect(context.commit).toHaveBeenCalledWith(REMOVE_PRODUCT_FROM_STOCK, { id: 1, quantityToRemove: 2 });
         });
     });
 });

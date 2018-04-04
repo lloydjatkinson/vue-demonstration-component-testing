@@ -15,7 +15,7 @@ describe('Shopping Module Mutations', () => {
                 basketProducts: []
             };
     
-            ADD_PRODUCT_TO_BASKET(state, 1, 1);
+            ADD_PRODUCT_TO_BASKET(state, { id: 1, quantityToAdd: 1 });
     
             expect(state.basketProducts.length).toBe(1);
         });
@@ -25,8 +25,8 @@ describe('Shopping Module Mutations', () => {
                 basketProducts: []
             };
     
-            ADD_PRODUCT_TO_BASKET(state, 1, 1);
-            ADD_PRODUCT_TO_BASKET(state, 1, 1);
+            ADD_PRODUCT_TO_BASKET(state, { id: 1, quantityToAdd: 1 });
+            ADD_PRODUCT_TO_BASKET(state, { id: 1, quantityToAdd: 1 });
             
             expect(state.basketProducts[0].quantity).toBe(2);
         });
@@ -36,9 +36,9 @@ describe('Shopping Module Mutations', () => {
                 basketProducts: []
             };
     
-            ADD_PRODUCT_TO_BASKET(state, 1, 10);
-            ADD_PRODUCT_TO_BASKET(state, 2, 20);
-            ADD_PRODUCT_TO_BASKET(state, 3, 30);
+            ADD_PRODUCT_TO_BASKET(state, { id: 1, quantityToAdd: 10 });
+            ADD_PRODUCT_TO_BASKET(state, { id: 2, quantityToAdd: 20 });
+            ADD_PRODUCT_TO_BASKET(state, { id: 3, quantityToAdd: 30 });
             
             expect(state.basketProducts).toContainEqual({ id: 1, quantity: 10 });
             expect(state.basketProducts).toContainEqual({ id: 2, quantity: 20 });
@@ -53,8 +53,8 @@ describe('Shopping Module Mutations', () => {
                 ]
             };
     
-            ADD_PRODUCT_TO_BASKET(state, 1, 10);
-            ADD_PRODUCT_TO_BASKET(state, 2, 20);
+            ADD_PRODUCT_TO_BASKET(state, { id: 1, quantityToAdd: 10 });
+            ADD_PRODUCT_TO_BASKET(state, { id: 2, quantityToAdd: 20 });
             
             expect(state.basketProducts).toContainEqual({ id: 1, quantity: 15 });
             expect(state.basketProducts).toContainEqual({ id: 2, quantity: 26 });
@@ -67,7 +67,7 @@ describe('Shopping Module Mutations', () => {
                 basketProducts: [{ id: 1, quantity: 1 }]
             };
 
-            REMOVE_PRODUCT_FROM_BASKET(state, 1, 1);
+            REMOVE_PRODUCT_FROM_BASKET(state, { id: 1, quantityToRemove: 1 });
 
             expect(state.basketProducts.length).toBe(0);
         });
@@ -77,8 +77,8 @@ describe('Shopping Module Mutations', () => {
                 basketProducts: [{ id: 1, quantity: 2}]
             };
 
-            REMOVE_PRODUCT_FROM_BASKET(state, 1, 1);
-            REMOVE_PRODUCT_FROM_BASKET(state, 1, 1);
+            REMOVE_PRODUCT_FROM_BASKET(state, { id: 1, quantityToRemove: 1 });
+            REMOVE_PRODUCT_FROM_BASKET(state, { id: 1, quantityToRemove: 1 });
 
             expect(state.basketProducts.length).toBe(0);
         });
@@ -92,9 +92,9 @@ describe('Shopping Module Mutations', () => {
                 ]
             };
 
-            REMOVE_PRODUCT_FROM_BASKET(state, 1, 5);
-            REMOVE_PRODUCT_FROM_BASKET(state, 2, 10);
-            REMOVE_PRODUCT_FROM_BASKET(state, 3, 15);
+            REMOVE_PRODUCT_FROM_BASKET(state, { id: 1, quantityToRemove: 5 });
+            REMOVE_PRODUCT_FROM_BASKET(state, { id: 2, quantityToRemove: 10 });
+            REMOVE_PRODUCT_FROM_BASKET(state, { id: 3, quantityToRemove: 15 });
 
             expect(state.basketProducts).toContainEqual({ id: 1, quantity: 5 });
             expect(state.basketProducts).toContainEqual({ id: 2, quantity: 10 });
@@ -122,7 +122,7 @@ describe('Shopping Module Mutations', () => {
                 availableProducts: []
             };
 
-            ADD_PRODUCT_TO_STOCK(state, 1, 1);
+            ADD_PRODUCT_TO_STOCK(state, { id: 1, quantityToAdd: 1 });
 
             expect(state.availableProducts.length).toBe(1);
         });
@@ -132,8 +132,8 @@ describe('Shopping Module Mutations', () => {
                 availableProducts: []
             };
 
-            ADD_PRODUCT_TO_STOCK(state, 1, 1);
-            ADD_PRODUCT_TO_STOCK(state, 1, 1);
+            ADD_PRODUCT_TO_STOCK(state, { id: 1, quantityToAdd: 1 });
+            ADD_PRODUCT_TO_STOCK(state, { id: 1, quantityToAdd: 1 });
 
             expect(state.availableProducts.length).toBe(1);
             expect(state.availableProducts).toContainEqual({ id: 1, quantity: 2 });
@@ -144,9 +144,9 @@ describe('Shopping Module Mutations', () => {
                 availableProducts: []
             };
 
-            ADD_PRODUCT_TO_STOCK(state, 1, 10);
-            ADD_PRODUCT_TO_STOCK(state, 2, 20);
-            ADD_PRODUCT_TO_STOCK(state, 3, 30);
+            ADD_PRODUCT_TO_STOCK(state, { id: 1, quantityToAdd: 10 });
+            ADD_PRODUCT_TO_STOCK(state, { id: 2, quantityToAdd: 20 });
+            ADD_PRODUCT_TO_STOCK(state, { id: 3, quantityToAdd: 30 });
 
             expect(state.availableProducts).toContainEqual({ id: 1, quantity: 10 });
             expect(state.availableProducts).toContainEqual({ id: 2, quantity: 20 });
@@ -160,7 +160,7 @@ describe('Shopping Module Mutations', () => {
                 availableProducts: [{ id: 1, quantity: 1 }]
             };
 
-            REMOVE_PRODUCT_FROM_STOCK(state, 1, 1);
+            REMOVE_PRODUCT_FROM_STOCK(state, { id: 1, quantityToRemove: 1 });
 
             expect(state.availableProducts.length).toBe(1);
             expect(state.availableProducts).toContainEqual({ id: 1, quantity: 0 });
@@ -171,8 +171,8 @@ describe('Shopping Module Mutations', () => {
                 availableProducts: [{ id: 1, quantity: 2 }]
             };
 
-            REMOVE_PRODUCT_FROM_STOCK(state, 1, 1);
-            REMOVE_PRODUCT_FROM_STOCK(state, 1, 1);
+            REMOVE_PRODUCT_FROM_STOCK(state, { id: 1, quantityToRemove: 1 });
+            REMOVE_PRODUCT_FROM_STOCK(state, { id: 1, quantityToRemove: 1 });
 
             expect(state.availableProducts.length).toBe(1);
             expect(state.availableProducts).toContainEqual({ id: 1, quantity: 0 });
@@ -187,9 +187,9 @@ describe('Shopping Module Mutations', () => {
                 ]
             };
 
-            REMOVE_PRODUCT_FROM_STOCK(state, 1, 10);
-            REMOVE_PRODUCT_FROM_STOCK(state, 2, 5);
-            REMOVE_PRODUCT_FROM_STOCK(state, 3, 25);
+            REMOVE_PRODUCT_FROM_STOCK(state, { id: 1, quantityToRemove: 10 });
+            REMOVE_PRODUCT_FROM_STOCK(state, { id: 2, quantityToRemove: 5 });
+            REMOVE_PRODUCT_FROM_STOCK(state, { id:3, quantityToRemove: 25 });
 
             expect(state.availableProducts.length).toBe(3);
             expect(state.availableProducts).toContainEqual({ id: 1, quantity: 0 });
@@ -202,7 +202,7 @@ describe('Shopping Module Mutations', () => {
                 availableProducts: [{ id: 1, quantity: 10 }]
             };
             
-            REMOVE_PRODUCT_FROM_STOCK(state, 1, 20);
+            REMOVE_PRODUCT_FROM_STOCK(state, { id: 1, quantityToRemove: 20 });
 
             expect(state.availableProducts.length).toBe(1);
             expect(state.availableProducts).toContainEqual({ id: 1, quantity: 0 });
@@ -219,11 +219,11 @@ describe('Shopping Module Mutations', () => {
                 ]
             };
 
-            ADD_PRODUCT_TO_BASKET(state, 10, 1);
+            ADD_PRODUCT_TO_BASKET(state, { id: 10, quantityToAdd: 1 });
             expect(state.basketProducts).toContainEqual({ id: 10, quantity: 9 });
             expect(state.basketProducts).toContainEqual({ id: 14, quantity: 40 });
 
-            REMOVE_PRODUCT_FROM_BASKET(state, 10, 5);
+            REMOVE_PRODUCT_FROM_BASKET(state, { id: 10, quantityToRemove: 5 });
             expect(state.basketProducts).toContainEqual({ id: 10, quantity: 4 });
             expect(state.basketProducts).toContainEqual({ id: 14, quantity: 40 });
         });
@@ -237,11 +237,11 @@ describe('Shopping Module Mutations', () => {
                 ]
             };
 
-            ADD_PRODUCT_TO_STOCK(state, 10, 1);
+            ADD_PRODUCT_TO_STOCK(state, { id: 10, quantityToAdd: 1 });
             expect(state.availableProducts).toContainEqual({ id: 10, quantity: 9 });
             expect(state.availableProducts).toContainEqual({ id: 14, quantity: 40 });
 
-            REMOVE_PRODUCT_FROM_STOCK(state, 10, 5);
+            REMOVE_PRODUCT_FROM_STOCK(state, { id: 10, quantityToRemove: 5 });
             expect(state.availableProducts).toContainEqual({ id: 10, quantity: 4 });
             expect(state.availableProducts).toContainEqual({ id: 14, quantity: 40 });
 
@@ -256,7 +256,7 @@ describe('Shopping Module Mutations', () => {
             };
 
             expect(() => {
-                REMOVE_PRODUCT_FROM_BASKET(state, 2, 1);
+                REMOVE_PRODUCT_FROM_BASKET(state, { id: 2, quantityToRemove: 1 });
             }).toThrow('Unknown ID.');
         });
 
@@ -266,7 +266,7 @@ describe('Shopping Module Mutations', () => {
             };
 
             expect(() => {
-                REMOVE_PRODUCT_FROM_STOCK(state, 2, 1);
+                REMOVE_PRODUCT_FROM_STOCK(state, { id: 2, quantityToRemove: 1 });
             }).toThrow('Unknown ID.');
         });
     });

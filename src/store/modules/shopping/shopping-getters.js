@@ -2,6 +2,7 @@
 const getters = {
     availableProducts: state => state.availableProducts,
     lowStockProducts: state => state.availableProducts.filter(product => product.quantity < 10),
+    basketContainsProducts: state => state.basketProducts.length > 0,
     basketProducts: state => {
         const products = [];
         for(const basketProduct of state.basketProducts) {

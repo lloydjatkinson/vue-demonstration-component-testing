@@ -12,16 +12,16 @@ import {
 
 const actions = {
     addProductToBasket ({ commit }, { id, quantityToAdd }) {
-        commit(ADD_PRODUCT_TO_BASKET, id, quantityToAdd);
+        commit(ADD_PRODUCT_TO_BASKET, { id, quantityToAdd });
     },
     removeProductFromBasket ({ commit }, { id, quantityToRemove }) {
-        commit(REMOVE_PRODUCT_FROM_BASKET, id, quantityToRemove);
+        commit(REMOVE_PRODUCT_FROM_BASKET, { id, quantityToRemove });
     },
     addProductToStock ({ commit }, { id, quantityToAdd }) {
-        commit(ADD_PRODUCT_TO_STOCK, id, quantityToAdd);
+        commit(ADD_PRODUCT_TO_STOCK, { id, quantityToAdd });
     },
     removeProductFromStock ({ commit }, { id, quantityToRemove }) {
-        commit(REMOVE_PRODUCT_FROM_STOCK, id, quantityToRemove);
+        commit(REMOVE_PRODUCT_FROM_STOCK, { id, quantityToRemove });
     },
     emptyBasket ({ commit }) {
         commit(EMPTY_BASKET);

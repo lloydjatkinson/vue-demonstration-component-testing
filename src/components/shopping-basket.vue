@@ -11,6 +11,12 @@
                 </div>
             </div>
         </nav>
+
+        <!-- <div v-if>
+        </div> -->
+        <b-message type="is-info" v-if="!basketContainsProducts">
+            Add some items to get started!
+        </b-message>
         <ul>
             <li
                 v-for="(item, index) in basketProducts"
@@ -30,14 +36,15 @@ export default {
     data () {
         return {
 
-        }
+        };
     },
     computed: {
         ...mapGetters('shoppingStore', [
-            'basketProducts'
+            'basketProducts',
+            'basketContainsProducts'
         ])
     }
-}
+};
 </script>
 
 <style>
