@@ -15,5 +15,6 @@ module.exports = {
     snapshotSerializers: [
         'jest-serializer-vue'
     ],
-    "collectCoverage": true
+    "collectCoverage": true,
+    "verbose": true
 };
