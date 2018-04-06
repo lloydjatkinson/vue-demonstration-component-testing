@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import Vue from 'vue';
 import Buefy from 'buefy';
 import 'buefy/lib/buefy.css';
@@ -11,3 +12,8 @@ new Vue({
     store,
     render: h => h(ShoppingApplication)
 }).$mount('#app');
+
+// const example = () => {
+//     store.dispatch("shoppingStore/addProductToStock" , { id: 1, quantityToAdd: 1 });
+// };
+// const timerId = setInterval(example, 500);
