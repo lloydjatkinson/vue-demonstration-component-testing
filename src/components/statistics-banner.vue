@@ -3,7 +3,7 @@
         <div class="level-item has-text-centered">
             <div>
                 <p class="heading">Types of Product</p>
-                <p class="title">{{ availableProducts.length }}</p>
+                <p class="title">{{ stockProducts.length }}</p>
             </div>
         </div>
         <div class="level-item has-text-centered">
@@ -47,7 +47,7 @@ export default {
     
     computed: {
         ...mapGetters('shoppingStore', [
-            'availableProducts',
+            'stockProducts',
             'lowStockProducts'
         ])
     }

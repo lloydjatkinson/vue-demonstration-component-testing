@@ -1,7 +1,7 @@
 import getters from '../../../../src/store/modules/shopping/shopping-getters';
 
 const {
-    availableProducts,
+    stockProducts,
     basketContainsProducts,
     basketProducts,
     lowStockProducts,
@@ -13,14 +13,14 @@ const {
 describe('Shopping Module Getters', () => {
     it('gets the available products', () => {
         const state = {
-            availableProducts: [
+            stockProducts: [
                 { id: 1, quantity: 1 },
                 { id: 2, quantity: 2 },
                 { id: 3, quantity: 3 }
             ]
         };
 
-        const result = availableProducts(state);
+        const result = stockProducts(state);
 
         expect(result).toContainEqual({ id: 1, quantity: 1 });
         expect(result).toContainEqual({ id: 2, quantity: 2 });
@@ -44,7 +44,7 @@ describe('Shopping Module Getters', () => {
 
     it('gets the basket products', () => {
         const state = {
-            availableProducts: [
+            stockProducts: [
                 { id: 1, name: 'Test 1', price: 5, quantity: 10 },
                 { id: 2, name: 'Test 2', price: 10, quantity: 10 },
                 { id: 3, name: 'Test 3', price: 20, quantity: 11 }
@@ -65,7 +65,7 @@ describe('Shopping Module Getters', () => {
 
     it('throws when getting products that have invalid ID', () => {
         const state = {
-            availableProducts: [
+            stockProducts: [
                 { id: 1, name: 'Test 1', price: 5, quantity: 10 },
                 { id: 2, name: 'Test 2', price: 10, quantity: 10 },
                 { id: 3, name: 'Test 3', price: 20, quantity: 11 }
@@ -84,7 +84,7 @@ describe('Shopping Module Getters', () => {
 
     it('gets correct number of low stock items', () => {
         const state = {
-            availableProducts: [
+            stockProducts: [
                 { id: 1, quantity: 8 },
                 { id: 2, quantity: 10 },
                 { id: 3, quantity: 20 },
@@ -130,7 +130,7 @@ describe('Shopping Module Getters', () => {
 
     it('gets correct basket total price via reducer', () => {
         const state = {
-            availableProducts: [
+            stockProducts: [
                 { id: 0, price: 5 },
                 { id: 1, price: 8 },
                 { id: 2, price: 10 }

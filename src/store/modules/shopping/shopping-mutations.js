@@ -46,12 +46,12 @@ const mutations = {
         mustNotBeNullOrUndefined(id, 'id');
         mustNotBeNullOrUndefined(quantityToAdd, 'quantityToAdd');
 
-        const product = state.availableProducts.find(p => p.id === id);
+        const product = state.stockProducts.find(p => p.id === id);
 
         if (product) {
             product.quantity += quantityToAdd;
         } else {
-            state.availableProducts.push({ id, quantity: quantityToAdd });
+            state.stockProducts.push({ id, quantity: quantityToAdd });
         }
     },
 
@@ -59,7 +59,7 @@ const mutations = {
         mustNotBeNullOrUndefined(id, 'id');
         mustNotBeNullOrUndefined(quantityToRemove, 'quantityToRemove');
 
-        const product = state.availableProducts.find(p => p.id === id);
+        const product = state.stockProducts.find(p => p.id === id);
 
         if (product) {
             product.quantity -= quantityToRemove;

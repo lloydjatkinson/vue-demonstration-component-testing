@@ -12,7 +12,7 @@
             </div>
         </nav>
         <b-table
-            v-bind:data="availableProducts"
+            v-bind:data="stockProducts"
             v-bind:columns="productColumns"
             v-bind:hoverable="true">
         </b-table>
@@ -36,7 +36,7 @@ export default {
 
     computed: {
         ...mapGetters('shoppingStore', [
-            'availableProducts'
+            'stockProducts'
         ]),
 
         productColumns () {

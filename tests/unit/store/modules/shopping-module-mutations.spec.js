@@ -119,68 +119,68 @@ describe('Shopping Module Mutations', () => {
     describe('Adding products to stock', () => {
         it('adds single product to empty stock and has valid array length', () => {
             const state = {
-                availableProducts: []
+                stockProducts: []
             };
 
             ADD_PRODUCT_TO_STOCK(state, { id: 1, quantityToAdd: 1 });
 
-            expect(state.availableProducts.length).toBe(1);
+            expect(state.stockProducts.length).toBe(1);
         });
 
         it('adds one product twice one by one to empty stock and has valid quantity', () => {
             const state = {
-                availableProducts: []
+                stockProducts: []
             };
 
             ADD_PRODUCT_TO_STOCK(state, { id: 1, quantityToAdd: 1 });
             ADD_PRODUCT_TO_STOCK(state, { id: 1, quantityToAdd: 1 });
 
-            expect(state.availableProducts.length).toBe(1);
-            expect(state.availableProducts).toContainEqual({ id: 1, quantity: 2 });
+            expect(state.stockProducts.length).toBe(1);
+            expect(state.stockProducts).toContainEqual({ id: 1, quantity: 2 });
         });
 
         it('adds multiple products to empty stock and has valid quantities', () => {
             const state = {
-                availableProducts: []
+                stockProducts: []
             };
 
             ADD_PRODUCT_TO_STOCK(state, { id: 1, quantityToAdd: 10 });
             ADD_PRODUCT_TO_STOCK(state, { id: 2, quantityToAdd: 20 });
             ADD_PRODUCT_TO_STOCK(state, { id: 3, quantityToAdd: 30 });
 
-            expect(state.availableProducts).toContainEqual({ id: 1, quantity: 10 });
-            expect(state.availableProducts).toContainEqual({ id: 2, quantity: 20 });
-            expect(state.availableProducts).toContainEqual({ id: 3, quantity: 30 });
+            expect(state.stockProducts).toContainEqual({ id: 1, quantity: 10 });
+            expect(state.stockProducts).toContainEqual({ id: 2, quantity: 20 });
+            expect(state.stockProducts).toContainEqual({ id: 3, quantity: 30 });
         });
     });
 
     describe('Removing products from stock', () => {
         it('removes the single product from stock and has valid array length', () => {
             const state = {
-                availableProducts: [{ id: 1, quantity: 1 }]
+                stockProducts: [{ id: 1, quantity: 1 }]
             };
 
             REMOVE_PRODUCT_FROM_STOCK(state, { id: 1, quantityToRemove: 1 });
 
-            expect(state.availableProducts.length).toBe(1);
-            expect(state.availableProducts).toContainEqual({ id: 1, quantity: 0 });
+            expect(state.stockProducts.length).toBe(1);
+            expect(state.stockProducts).toContainEqual({ id: 1, quantity: 0 });
         });
 
         it('removes one product twice one by one from stock and has valid quantity', () => {
             const state = {
-                availableProducts: [{ id: 1, quantity: 2 }]
+                stockProducts: [{ id: 1, quantity: 2 }]
             };
 
             REMOVE_PRODUCT_FROM_STOCK(state, { id: 1, quantityToRemove: 1 });
             REMOVE_PRODUCT_FROM_STOCK(state, { id: 1, quantityToRemove: 1 });
 
-            expect(state.availableProducts.length).toBe(1);
-            expect(state.availableProducts).toContainEqual({ id: 1, quantity: 0 });
+            expect(state.stockProducts.length).toBe(1);
+            expect(state.stockProducts).toContainEqual({ id: 1, quantity: 0 });
         });
 
         it('removes some of the same already present products from stock and has valid quantities', () => {
             const state = {
-                availableProducts: [
+                stockProducts: [
                     { id: 1, quantity: 10 },
                     { id: 2, quantity: 20 },
                     { id: 3, quantity: 30 }
@@ -191,21 +191,21 @@ describe('Shopping Module Mutations', () => {
             REMOVE_PRODUCT_FROM_STOCK(state, { id: 2, quantityToRemove: 5 });
             REMOVE_PRODUCT_FROM_STOCK(state, { id:3, quantityToRemove: 25 });
 
-            expect(state.availableProducts.length).toBe(3);
-            expect(state.availableProducts).toContainEqual({ id: 1, quantity: 0 });
-            expect(state.availableProducts).toContainEqual({ id: 2, quantity: 15 });
-            expect(state.availableProducts).toContainEqual({ id: 3, quantity: 5 });
+            expect(state.stockProducts.length).toBe(3);
+            expect(state.stockProducts).toContainEqual({ id: 1, quantity: 0 });
+            expect(state.stockProducts).toContainEqual({ id: 2, quantity: 15 });
+            expect(state.stockProducts).toContainEqual({ id: 3, quantity: 5 });
         });
 
         it('removes products from stock and clamps quantity to zero', () => {
             const state = {
-                availableProducts: [{ id: 1, quantity: 10 }]
+                stockProducts: [{ id: 1, quantity: 10 }]
             };
             
             REMOVE_PRODUCT_FROM_STOCK(state, { id: 1, quantityToRemove: 20 });
 
-            expect(state.availableProducts.length).toBe(1);
-            expect(state.availableProducts).toContainEqual({ id: 1, quantity: 0 });
+            expect(state.stockProducts.length).toBe(1);
+            expect(state.stockProducts).toContainEqual({ id: 1, quantity: 0 });
         });
     });
 
@@ -230,7 +230,7 @@ describe('Shopping Module Mutations', () => {
 
         it('adds and removes products from stock and maintains correct quantities', () => {
             const state = {
-                availableProducts: [
+                stockProducts: [
                     { id: 10, quantity: 8 },
                     { id: 11, quantity: 15 },
                     { id: 14, quantity: 40 }
@@ -238,12 +238,12 @@ describe('Shopping Module Mutations', () => {
             };
 
             ADD_PRODUCT_TO_STOCK(state, { id: 10, quantityToAdd: 1 });
-            expect(state.availableProducts).toContainEqual({ id: 10, quantity: 9 });
-            expect(state.availableProducts).toContainEqual({ id: 14, quantity: 40 });
+            expect(state.stockProducts).toContainEqual({ id: 10, quantity: 9 });
+            expect(state.stockProducts).toContainEqual({ id: 14, quantity: 40 });
 
             REMOVE_PRODUCT_FROM_STOCK(state, { id: 10, quantityToRemove: 5 });
-            expect(state.availableProducts).toContainEqual({ id: 10, quantity: 4 });
-            expect(state.availableProducts).toContainEqual({ id: 14, quantity: 40 });
+            expect(state.stockProducts).toContainEqual({ id: 10, quantity: 4 });
+            expect(state.stockProducts).toContainEqual({ id: 14, quantity: 40 });
 
 
         });
@@ -262,7 +262,7 @@ describe('Shopping Module Mutations', () => {
 
         it('throws when removing an unknown ID from stock', () => {
             const state = {
-                availableProducts: [{ id: 1, quantity: 1 }]
+                stockProducts: [{ id: 1, quantity: 1 }]
             };
 
             expect(() => {

@@ -1,12 +1,12 @@
 // @ts-check
 const getters = {
-    availableProducts: state => state.availableProducts,
-    lowStockProducts: state => state.availableProducts.filter(product => product.quantity < 10),
+    stockProducts: state => state.stockProducts,
+    lowStockProducts: state => state.stockProducts.filter(product => product.quantity < 10),
     basketContainsProducts: state => state.basketProducts.length > 0,
     basketProducts: state => {
         const products = [];
         for(const basketProduct of state.basketProducts) {
-            const match = state.availableProducts.find(p => p.id === basketProduct.id);
+            const match = state.stockProducts.find(p => p.id === basketProduct.id);
         
             if (match) {
                 products.push({
@@ -31,7 +31,7 @@ const getters = {
         }, 0),
     basketPriceTotal: state =>
         state.basketProducts.reduce((accumulator, currentProduct) => {
-            return accumulator + state.availableProducts
+            return accumulator + state.stockProducts
                 .find(product => product.id === currentProduct.id).price * currentProduct.quantity;
         }, 0)
 };

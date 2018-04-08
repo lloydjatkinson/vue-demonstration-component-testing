@@ -1,6 +1,6 @@
 // @ts-check
 const state = {
-    availableProducts: [
+    stockProducts: [
         { id: 0, name: 'Chocolate Liqueur - Godet White', quantity: 15, price: 5 },
         { id: 1, name: 'Pastry - Mini French Pastries', quantity: 6, price: 8 },
         { id: 2, name: 'Milkettes - 2%', quantity: 6, price: 10 },
