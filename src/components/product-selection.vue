@@ -16,16 +16,25 @@
             v-bind:columns="productColumns"
             v-bind:hoverable="true">
         </b-table>
-        <button
-            v-on:click="removeProductFromStock({ id: 14, quantityToRemove: 1 })"
-            class="button is-success">
-            Test
-        </button>
+        <div class="buttons">
+            <button
+                v-on:click="addRandom"
+                class="button is-success">
+                Add
+            </button>
+            <button
+                v-on:click="removeRandom"
+                class="button is-warning">
+                Remove
+            </button>
+        </div>
     </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import { random } from 'lodash';
+
 export default {
     name: 'ProductSelection',
     data () {
@@ -66,8 +75,17 @@ export default {
 
     methods: {
         ...mapActions('shoppingStore', [
+            'addProductToStock',
             'removeProductFromStock'
-        ])
+        ]),
+
+        addRandom () {
+            this.addProductToStock({ id: random(0, 19), quantityToAdd: 1 });
+        },
+
+        removeRandom () {
+            this.removeProductFromStock({ id: random(0, 19), quantityToRemove: 1 });
+        }
     }
 };
 </script>
