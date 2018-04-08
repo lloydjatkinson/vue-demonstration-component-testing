@@ -2,6 +2,8 @@ import getters from '../../../../src/store/modules/shopping/shopping-getters';
 
 const {
     stockProducts,
+    stockQuantity,
+    stockTotalPrice,
     basketContainsProducts,
     basketProducts,
     lowStockProducts,
@@ -145,5 +147,31 @@ describe('Shopping Module Getters', () => {
         const result = basketPriceTotal(state);
 
         expect(result).toBe(370);
+    });
+
+    it('gets the correct stock quantity via reducer', () => {
+        const state = {
+            stockProducts: [
+                { id: 0, price: 7, quantity: 10 },
+                { id: 1, price: 14, quantity: 20 },
+                { id: 2, price: 21, quantity: 30 },
+                { id: 3, price: 28, quantity: 40 }
+            ]
+        };
+
+        expect(stockQuantity(state)).toBe(100);
+    });
+
+    it('gets the correct stock total price via reducer', () => {
+        const state = {
+            stockProducts: [
+                { id: 0, price: 7, quantity: 10 },
+                { id: 1, price: 14, quantity: 20 },
+                { id: 2, price: 21, quantity: 30 },
+                { id: 3, price: 28, quantity: 40 }
+            ]
+        };
+
+        expect(stockTotalPrice(state)).toBe(2100);
     });
 });

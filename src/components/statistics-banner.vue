@@ -9,13 +9,13 @@
         <div class="level-item has-text-centered">
             <div>
                 <p class="heading">Stock Quantity</p>
-                <p class="title">TODO</p>
+                <p class="title">{{ stockQuantity }}</p>
             </div>
         </div>
         <div class="level-item has-text-centered">
             <div>
                 <p class="heading">Stock Value</p>
-                <p class="title">TODO</p>
+                <p class="title">£{{ stockTotalPrice }}</p>
             </div>
         </div>
         <div class="level-item has-text-centered">
@@ -48,7 +48,9 @@ export default {
     computed: {
         ...mapGetters('shoppingStore', [
             'stockProducts',
-            'lowStockProducts'
+            'lowStockProducts',
+            'stockQuantity',
+            'stockTotalPrice'
         ])
     }
 }

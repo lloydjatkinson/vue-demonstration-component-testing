@@ -2,6 +2,14 @@
 const getters = {
     stockProducts: state => state.stockProducts,
     lowStockProducts: state => state.stockProducts.filter(product => product.quantity < 10),
+    stockQuantity: state =>
+        state.stockProducts.reduce((accumulator, currentProduct) => {
+            return accumulator + currentProduct.quantity;
+        }, 0),
+    stockTotalPrice: state =>
+        state.stockProducts.reduce((accumulator, currentProduct) => {
+            return accumulator + currentProduct.price * currentProduct.quantity;
+        }, 0),
     basketContainsProducts: state => state.basketProducts.length > 0,
     basketProducts: state => {
         const products = [];
