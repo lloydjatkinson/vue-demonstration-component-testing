@@ -2,6 +2,7 @@
 const getters = {
     stockProducts: state => state.stockProducts,
     lowStockProducts: state => state.stockProducts.filter(product => product.quantity < 10),
+    // TODO: Investigate possibility of abstracting reduce and passing in a function with logic - to reduce boilerplate.
     stockQuantity: state =>
         state.stockProducts.reduce((accumulator, currentProduct) => {
             return accumulator + currentProduct.quantity;
