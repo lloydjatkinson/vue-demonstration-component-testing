@@ -26,7 +26,7 @@ export default {
     },
 
     computed: {
-        ...mapGetters('shoppingStore', [
+        ...mapGetters('shoppingModule', [
             'lowStockProducts'
         ]),
 

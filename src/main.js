@@ -15,6 +15,6 @@ new Vue({
 }).$mount('#app');
 
 // const example = () => {
-//     store.dispatch("shoppingStore/addProductToStock" , { id: random(0, 20), quantityToAdd: random(0, 20) });
+//     store.dispatch("shoppingModule/addProductToStock" , { id: random(0, 20), quantityToAdd: random(0, 20) });
 // };
 // const timerId = setInterval(example);

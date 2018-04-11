@@ -39,7 +39,7 @@ export default {
         };
     },
     computed: {
-        ...mapGetters('shoppingStore', [
+        ...mapGetters('shoppingModule', [
             'basketProducts',
             'basketContainsProducts'
         ])

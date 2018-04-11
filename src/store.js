@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import shoppingStore from './store/modules/shopping/shopping-store';
+import shoppingModule from './store/modules/shopping/shopping-module';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules: {
-        shoppingStore
+        shoppingModule
     }
 });

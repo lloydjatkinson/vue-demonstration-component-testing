@@ -16,7 +16,7 @@ const {
     addProductToStock,
     removeProductFromStock,
     emptyBasket
-} = actions ;
+} = actions;
 
 describe('Shopping Module Actions', () => {
     let context = {};
