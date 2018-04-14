@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+// import 'babel-polyfill';
 import { shallow, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 // import shoppingModule from '../../../src/store/modules/shopping/shopping-module';
@@ -69,7 +69,7 @@ describe('Statistics Banner', () => {
 
         // it('renders five items', () => {
         //     const wrapper = shallow(StatisticsBanner, { store, localVue });
-        //     expect(wrapper.findAll('#level-item').length).toBe(5);
+        //     expect(wrapper.findAll('.level-item').length).toBe(5);
         // });
     });
 });
