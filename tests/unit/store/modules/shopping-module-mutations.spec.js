@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import mutations from '../../../../src/store/modules/shopping/shopping-mutations';
 
 const {

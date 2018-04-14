@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import { shallow, mount } from '@vue/test-utils';
 import StatisticsBannerItem from '../../../src/components/statistics-banner-item.vue';
 

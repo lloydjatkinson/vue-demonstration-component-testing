@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import {
     ADD_PRODUCT_TO_BASKET,
     REMOVE_PRODUCT_FROM_BASKET,
