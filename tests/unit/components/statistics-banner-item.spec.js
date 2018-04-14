@@ -24,10 +24,10 @@ describe('Statistics Banner Item', () => {
     });
 
 
-    // it('renders item with props data correctly', () => {
-    //     const wrapper = shallow(StatisticsBannerItem, { propsData });
+    it('renders item with props data correctly', () => {
+        const wrapper = shallow(StatisticsBannerItem, { propsData });
         
-    //     // const p = wrapper.find('p');
-    //     // console.log(p);
-    // });
+        // const p = wrapper.find('p');
+        // console.log(p);
+    });
 });

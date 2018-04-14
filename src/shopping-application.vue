@@ -1,8 +1,18 @@
 <template>
     <div id="app">
-        <section class="hero is-small is-success is-bold">
+        <section v-bind:class="{ 'is-success': greenTheme, 'is-warning': yellowTheme }" class="hero is-small is-bold">
             <div class="hero-body">
                 <div class="container">
+                    <div class="is-pulled-right">
+                        <b-dropdown>
+                            <button class="button" slot="trigger">
+                                <span>Theme</span>
+                                <b-icon icon="menu-down"></b-icon>
+                            </button>
+                            <b-dropdown-item v-on:click="yellowTheme = false; greenTheme = true;">Green</b-dropdown-item>
+                            <b-dropdown-item v-on:click="yellowTheme = true; greenTheme = false;">Yellow</b-dropdown-item>
+                        </b-dropdown>
+                    </div>
                     <h1 class="title">
                         Store
                     </h1>
@@ -56,6 +66,12 @@ export default {
         ShoppingBasket,
         ProductSelection,
         LowStock
+    },
+    data () {
+        return {
+            greenTheme: true,
+            yellowTheme: false
+        }
     }
 };
 </script>
