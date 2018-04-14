@@ -1,50 +1,24 @@
 <template>
     <nav class="level">
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">Types of Product</p>
-                <p class="title">{{ stockProducts.length }}</p>
-            </div>
-        </div>
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">Stock Quantity</p>
-                <p class="title">{{ stockQuantity }}</p>
-            </div>
-        </div>
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">Stock Value</p>
-                <p class="title">£{{ stockTotalPrice }}</p>
-            </div>
-        </div>
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">Low Stock</p>
-                <p class="title">{{ lowStockProducts.length }}</p>
-            </div>
-        </div>
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">Orders</p>
-                <p class="title">TODO</p>
-            </div>
-        </div>
+        <statistics-banner-item :heading="'Types of Product'" :sub-heading="stockProducts.length" />
+        <statistics-banner-item :heading="'Stock Quantity'" :sub-heading="stockQuantity" />
+        <statistics-banner-item :heading="'Stock Value'" :sub-heading="stockTotalPrice" />
+        <statistics-banner-item :heading="'Low Stock'" :sub-heading="lowStockProducts.length" />
+        <statistics-banner-item :heading="'Orders'" :sub-heading="'TODO'" />
     </nav>
 </template>
 
 <script>
 // @ts-check
 import { mapGetters } from 'vuex';
+import StatisticsBannerItem from './statistics-banner-item.vue';
 
 export default {
     name: 'StatisticsBanner',
-    data () {
-        return {
-
-        }
+    components: {
+        StatisticsBannerItem
     },
-    
+
     computed: {
         ...mapGetters('shoppingModule', [
             'stockProducts',
@@ -55,7 +29,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>
