@@ -31,9 +31,9 @@ Implementation
  - Components
 
 Unit tests
- - Render correct text/data
- - Render corrext text/data from props
+ - Render correct text/data ✔️
+ - Render corrext text/data from props ✔️
  - Render correct text/data from Vuex store
  - DOM events (e.g. user interaction)
  - Triggering DOM events
- - Check for existence of DOM element via selector
+ - Check for existence of DOM element via selector ✔️
