@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import getters from '../../../../src/store/modules/shopping/shopping-getters';
 
 const {
