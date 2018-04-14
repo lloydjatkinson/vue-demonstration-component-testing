@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import { shallow, mount } from '@vue/test-utils';
 import StatisticsBannerItem from '../../../src/components/statistics-banner-item.vue';
 
@@ -27,7 +28,7 @@ describe('Statistics Banner Item', () => {
     it('renders item with props data correctly', () => {
         const wrapper = shallow(StatisticsBannerItem, { propsData });
         
-        // const p = wrapper.find('p');
-        // console.log(p);
+        expect(wrapper.findAll('p').at(0).text()).toBe(propsData.heading);
+        expect(wrapper.findAll('p').at(1).text()).toBe(propsData.subHeading);
     });
 });

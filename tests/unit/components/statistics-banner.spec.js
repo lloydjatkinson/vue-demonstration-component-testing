@@ -1,4 +1,4 @@
-// import 'babel-polyfill';
+import 'babel-polyfill';
 import { shallow, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 // import shoppingModule from '../../../src/store/modules/shopping/shopping-module';
