@@ -3,6 +3,7 @@
 
 A demonstration of unit testing Javascript, Vue and Vuex. Using a generic shopping basket concept for demonstration purposes.
 
+![](docs/component-test.png)
 ![](docs/unit-test-getters-example.png)
 
 ## Plain Javascript
