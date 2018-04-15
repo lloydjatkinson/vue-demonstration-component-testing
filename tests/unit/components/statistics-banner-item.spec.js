@@ -1,6 +1,5 @@
-import { shallow, mount } from '@vue/test-utils';
+import { shallow } from '@vue/test-utils';
 import StatisticsBannerItem from '../../../src/components/statistics-banner-item.vue';
-
 
 describe('Statistics Banner Item', () => {
     const propsData = {
