@@ -22,7 +22,6 @@ describe('Statistics Banner Item', () => {
         expect(wrapper.findAll('.title').length).toBe(1);
     });
 
-
     it('renders item with props data correctly', () => {
         const wrapper = shallow(StatisticsBannerItem, { propsData });
         
