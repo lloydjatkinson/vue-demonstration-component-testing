@@ -6,7 +6,9 @@ import ShoppingApplication from './shopping-application.vue';
 import store from './store';
 import { random } from 'lodash';
 
+Vue.config.performance = true;
 Vue.config.productionTip = false;
+
 Vue.use(Buefy);
 
 new Vue({
