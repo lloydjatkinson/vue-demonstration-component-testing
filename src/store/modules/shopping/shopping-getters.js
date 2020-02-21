@@ -1,17 +1,22 @@
 // @ts-check
 const getters = {
     stockProducts: state => state.stockProducts,
+    
     lowStockProducts: state => state.stockProducts.filter(product => product.quantity < 10),
+    
     // TODO: Investigate possibility of abstracting reduce and passing in a function with logic - to reduce boilerplate.
     stockQuantity: state =>
         state.stockProducts.reduce((accumulator, currentProduct) => {
             return accumulator + currentProduct.quantity;
         }, 0),
+    
     stockTotalPrice: state =>
         state.stockProducts.reduce((accumulator, currentProduct) => {
             return accumulator + currentProduct.price * currentProduct.quantity;
         }, 0),
+    
     basketContainsProducts: state => state.basketProducts.length > 0,
+    
     basketProducts: state => {
         const products = [];
         for(const basketProduct of state.basketProducts) {
@@ -33,11 +38,14 @@ const getters = {
 
         return products;
     },
+    
     basketProductCount: state => state.basketProducts.length,
+    
     basketQuantityTotal: state =>
         state.basketProducts.reduce((accumulator, currentProduct) => {
             return accumulator + currentProduct.quantity;
         }, 0),
+    
     basketPriceTotal: state =>
         state.basketProducts.reduce((accumulator, currentProduct) => {
             return accumulator + state.stockProducts
